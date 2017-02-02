@@ -1,9 +1,11 @@
 package it.leonardosilvetti.siwfebbraio2017.model;
 
 public class Paziente {
+    
     private Long id;
     private String nome;
     private String cognome;
+    private String codiceFiscale;
 
     public Long getId() {
         return id;
@@ -29,5 +31,11 @@ public class Paziente {
         this.cognome = cognome;
     }
     
-    
+    public String getCodiceFiscale() {
+        return codiceFiscale;
+    }
+
+    public void setCodiceFiscale(String codiceFiscale) {
+        this.codiceFiscale = codiceFiscale;
+    }
 }
