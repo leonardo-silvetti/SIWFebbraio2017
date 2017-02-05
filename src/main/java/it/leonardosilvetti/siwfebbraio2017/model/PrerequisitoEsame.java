@@ -1,18 +1,16 @@
 package it.leonardosilvetti.siwfebbraio2017.model;
 
 import java.io.Serializable;
-import java.util.List;
-import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
-@Table (name = "pazienti")
-public class Paziente implements Serializable {
+@Table (name = "prerequisiti_esame")
+public class PrerequisitoEsame implements Serializable{
     
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -20,12 +18,10 @@ public class Paziente implements Serializable {
     
     private String nome;
     
-    private String cognome;
+    private String valore;
     
-    private String codiceFiscale;
-    
-    @OneToMany(mappedBy="paziente", cascade = CascadeType.PERSIST)
-    private List<Esame> esami;
+    @ManyToOne
+    private TipologiaEsame tipologiaEsame;
 
     public Long getId() {
         return id;
@@ -43,19 +39,19 @@ public class Paziente implements Serializable {
         this.nome = nome;
     }
 
-    public String getCognome() {
-        return cognome;
+    public String getValore() {
+        return valore;
     }
 
-    public void setCognome(String cognome) {
-        this.cognome = cognome;
-    }
-    
-    public String getCodiceFiscale() {
-        return codiceFiscale;
+    public void setValore(String valore) {
+        this.valore = valore;
     }
 
-    public void setCodiceFiscale(String codiceFiscale) {
-        this.codiceFiscale = codiceFiscale;
+    public TipologiaEsame getTipologiaEsame() {
+        return tipologiaEsame;
+    }
+
+    public void setTipologiaEsame(TipologiaEsame tipologiaEsame) {
+        this.tipologiaEsame = tipologiaEsame;
     }
 }

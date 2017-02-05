@@ -11,20 +11,20 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
-@Table (name = "pazienti")
-public class Paziente implements Serializable {
+@Table (name = "medici")
+public class Medico implements Serializable {
     
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue (strategy = GenerationType.IDENTITY)
     private Long id;
     
     private String nome;
     
     private String cognome;
     
-    private String codiceFiscale;
+    private String specializzazione;
     
-    @OneToMany(mappedBy="paziente", cascade = CascadeType.PERSIST)
+    @OneToMany (mappedBy = "medico", cascade = CascadeType.PERSIST)
     private List<Esame> esami;
 
     public Long getId() {
@@ -50,12 +50,20 @@ public class Paziente implements Serializable {
     public void setCognome(String cognome) {
         this.cognome = cognome;
     }
-    
-    public String getCodiceFiscale() {
-        return codiceFiscale;
+
+    public String getSpecializzazione() {
+        return specializzazione;
     }
 
-    public void setCodiceFiscale(String codiceFiscale) {
-        this.codiceFiscale = codiceFiscale;
+    public void setSpecializzazione(String specializzazione) {
+        this.specializzazione = specializzazione;
+    }
+
+    public List<Esame> getEsami() {
+        return esami;
+    }
+
+    public void setEsami(List<Esame> esami) {
+        this.esami = esami;
     }
 }
