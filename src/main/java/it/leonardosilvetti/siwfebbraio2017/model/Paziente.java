@@ -24,6 +24,8 @@ public class Paziente implements Serializable {
     
     private String codiceFiscale;
     
+    private String indirizzo;
+    
     @OneToMany(mappedBy="paziente", cascade = CascadeType.PERSIST)
     private List<Esame> esami;
 
@@ -57,5 +59,21 @@ public class Paziente implements Serializable {
 
     public void setCodiceFiscale(String codiceFiscale) {
         this.codiceFiscale = codiceFiscale;
+    }
+
+    public String getIndirizzo() {
+        return indirizzo;
+    }
+
+    public void setIndirizzo(String indirizzo) {
+        this.indirizzo = indirizzo;
+    }
+
+    public List<Esame> getEsami() {
+        return esami;
+    }
+
+    public void setEsami(List<Esame> esami) {
+        this.esami = esami;
     }
 }

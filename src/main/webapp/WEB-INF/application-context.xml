@@ -44,4 +44,7 @@
         <property name="sessionFactory" ref="sessionFactory" />
     </bean>
     
+    <!--CUSTOM BEANS-->
+    <bean id="pazienteDao" class="it.leonardosilvetti.siwfebbraio2017.dao.impl.PazienteDAOImpl"></bean>
+    <bean id="pazienteBo" class="it.leonardosilvetti.siwfebbraio2017.service.impl.PazienteBOImpl"></bean>
 </beans>

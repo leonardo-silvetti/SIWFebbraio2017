@@ -31,6 +31,9 @@ public class TipologiaEsame implements Serializable {
     private List<PrerequisitoEsame> prerequisiti;
     
     @OneToMany(mappedBy="tipologiaEsame", cascade = CascadeType.PERSIST)
+    private List<IndicatoreEsame> indicatori;
+    
+    @OneToMany(mappedBy="tipologiaEsame", cascade = CascadeType.PERSIST)
     private List<Esame> esami;
 
     public Long getId() {
@@ -79,6 +82,14 @@ public class TipologiaEsame implements Serializable {
 
     public void setPrerequisiti(List<PrerequisitoEsame> prerequisiti) {
         this.prerequisiti = prerequisiti;
+    }
+
+    public List<IndicatoreEsame> getIndicatori() {
+        return indicatori;
+    }
+
+    public void setIndicatori(List<IndicatoreEsame> indicatori) {
+        this.indicatori = indicatori;
     }
 
     public List<Esame> getEsami() {

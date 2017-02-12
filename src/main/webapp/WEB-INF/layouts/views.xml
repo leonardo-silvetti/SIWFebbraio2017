@@ -6,4 +6,7 @@
 	<definition name="index" extends="DefaultTemplate">
 	    <put-attribute name="body"	value="/WEB-INF/views/index.jsp" />
 	</definition>
+        <definition name="pazienti" extends="DefaultTemplate">
+	    <put-attribute name="body"	value="/WEB-INF/views/pazienti.jsp" />
+	</definition>
 </tiles-definitions>

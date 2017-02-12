@@ -8,9 +8,12 @@
         <title>JSP Page</title>
         <script src="${pageContext.request.contextPath}/resources/js/jquery-1.12.4.js"></script>
         <script src="${pageContext.request.contextPath}/resources/bootstrap/js/bootstrap.js"></script>
-        <link href="${pageContext.request.contextPath}/resources/bootstrap/css/bootstrap.css" rel="stylesheet"></link> 
+        <link href="${pageContext.request.contextPath}/resources/bootstrap/css/bootstrap.css" rel="stylesheet"></link>
+        <link href="${pageContext.request.contextPath}/resources/font-awesome/css/font-awesome.css" rel="stylesheet"></link>
+        <link href="${pageContext.request.contextPath}/resources/data-tables/datatables.css" rel="stylesheet"/>
+        <script src="${pageContext.request.contextPath}/resources/data-tables/datatables.js"></script>
     </head>
-    <body>
+    <body style="padding-top: 70px">
         <tiles:insertAttribute name="navbar"/>
 
         <div class="container-fluid">

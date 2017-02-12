@@ -25,7 +25,7 @@ public class Medico implements Serializable {
     private String specializzazione;
     
     @OneToMany (mappedBy = "medico", cascade = CascadeType.PERSIST)
-    private List<Esame> esami;
+    private List<Esame> visite;
 
     public Long getId() {
         return id;
@@ -59,11 +59,11 @@ public class Medico implements Serializable {
         this.specializzazione = specializzazione;
     }
 
-    public List<Esame> getEsami() {
-        return esami;
+    public List<Esame> getVisite() {
+        return visite;
     }
 
-    public void setEsami(List<Esame> esami) {
-        this.esami = esami;
+    public void setVisite(List<Esame> visite) {
+        this.visite = visite;
     }
 }
