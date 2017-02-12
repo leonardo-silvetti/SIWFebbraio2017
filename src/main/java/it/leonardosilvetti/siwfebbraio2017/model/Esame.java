@@ -17,13 +17,9 @@ public class Esame implements Serializable {
     @GeneratedValue (strategy = GenerationType.IDENTITY)
     private Long id;
     
-    private String nome;
-    
     private Date dataPrenotazione;
     
     private Date dataSvolgimento;
-    
-    private String risultato;
     
     @ManyToOne
     private TipologiaEsame tipologiaEsame;
@@ -42,14 +38,6 @@ public class Esame implements Serializable {
         this.id = id;
     }
 
-    public String getNome() {
-        return nome;
-    }
-
-    public void setNome(String nome) {
-        this.nome = nome;
-    }
-
     public Date getDataPrenotazione() {
         return dataPrenotazione;
     }
@@ -64,14 +52,6 @@ public class Esame implements Serializable {
 
     public void setDataSvolgimento(Date dataSvolgimento) {
         this.dataSvolgimento = dataSvolgimento;
-    }
-
-    public String getRisultato() {
-        return risultato;
-    }
-
-    public void setRisultato(String risultato) {
-        this.risultato = risultato;
     }
     
     public TipologiaEsame getTipologiaEsame() {
