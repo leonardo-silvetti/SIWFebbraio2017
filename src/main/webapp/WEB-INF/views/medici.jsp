@@ -3,41 +3,39 @@
 <%@taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <div class="panel panel-default">
     <div class="panel-heading">
-        <div class="panel-title pull-left">Pazienti</div>
+        <div class="panel-title pull-left">Personale medico</div>
         <div class="panel-title pull-right">
             <i class="fa fa-plus" aria-hidden="true"></i>
-            <a align="right" href="#" data-toggle="modal" data-target="#pazienteModal">
-                Inserisci paziente
+            <a align="right" href="#" data-toggle="modal" data-target="#medicoModal">
+                Inserisci personale medico
             </a>
         </div>
         <div class="clearfix"></div>
     </div>
     <div class="panel-body">
-        <table id="pazientiTable" class="table table-striped" width="100%">
+        <table id="mediciTable" class="table table-striped" width="100%">
             <thead>
                 <tr>
                     <th>Nome</th>
                     <th>Cognome</th>
-                    <th>Indirizzo</th>
-                    <th>Codice Fiscale</th>
+                    <th>Specializzazione</th>
                     <th class="all"></th>
                     <th class="all"></th>
                 </tr>
             </thead>
             <tbody>
-                <c:forEach var="paziente" items="${listaPazienti}">
+                <c:forEach var="medico" items="${listaMedici}">
                     <tr> 
-                        <td>${paziente.nome}</td>
-                        <td>${paziente.cognome}</td>
-                        <td>${paziente.indirizzo}</td>
-                        <td>${paziente.codiceFiscale}</td>
+                        <td>${medico.nome}</td>
+                        <td>${medico.cognome}</td>
+                        <td>${medico.specializzazione}</td>
                         <td>
-                            <a href="${pageContext.request.contextPath}/pazienti/delete?id=${paziente.id}">
+                            <a href="${pageContext.request.contextPath}/medici/delete?id=${medico.id}">
                                 <span class="glyphicon glyphicon-remove"></span>
                             </a>
                         </td>
                         <td>
-                            <a href="${pageContext.request.contextPath}/pazienti/update?id=${paziente.id}">
+                            <a href="${pageContext.request.contextPath}/medici/update?id=${medico.id}">
                                 <span class="glyphicon glyphicon-pencil"></span>
                             </a>
                         </td>
@@ -49,15 +47,15 @@
 </div>
 
 <!-- Modal -->
-<div id="pazienteModal" class="modal fade" role="dialog">
+<div id="medicoModal" class="modal fade" role="dialog">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal">&times;</button>
-                <h4 class="modal-title">Inserisci dati paziente</h4>
+                <h4 class="modal-title">Inserisci dati personale medico</h4>
             </div>
             <div class="modal-body">
-                <form:form method="POST" action="${pageContext.request.contextPath}/pazienti/save" commandName="pazienteBean">
+                <form:form method="POST" action="${pageContext.request.contextPath}/medici/save" commandName="medicoBean">
                     <div class="form-group-lg">
                         <div class="input-group">
                             <div class="input-group-addon"><i class="fa fa-user fa-lg"></i></div>
@@ -70,13 +68,8 @@
                         </div>
                         <br>
                         <div class="input-group">
-                            <div class="input-group-addon"><i class="fa fa-map-marker fa-lg"></i></div>
-                                <form:input path="indirizzo" id="indirizzo" type="text" class="form-control" placeholder="Indirizzo"/>
-                        </div>
-                        <br>
-                        <div class="input-group">
-                            <div class="input-group-addon"><i class="fa fa-address-card fa-lg"></i></div>
-                                <form:input path="codiceFiscale" id="codiceFiscale" type="text" class="form-control" placeholder="Codice Fiscale"/>
+                            <div class="input-group-addon"><i class="fa fa-stethoscope fa-lg"></i></div>
+                                <form:input path="specializzazione" id="specializzazione" type="text" class="form-control" placeholder="Specializzazione"/>
                         </div>
                     </div>
                     <br>
@@ -89,13 +82,13 @@
 <script>
     $(document).ready(function () {
 
-        $('#pazientiTable').dataTable({
+        $('#mediciTable').dataTable({
             "order": [],
             "responsive": true,
             "scrollX": true,
             "columnDefs": [
                 //{"className": 'none', "targets": [1, 5, 6, 7]},
-                {"orderable": false, "targets": [0, 2, 3, 4, 5]}
+                {"orderable": false, "targets": [0, 3, 4]}
             ]
         });
     });

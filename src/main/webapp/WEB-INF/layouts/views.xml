@@ -9,4 +9,13 @@
         <definition name="pazienti" extends="DefaultTemplate">
 	    <put-attribute name="body"	value="/WEB-INF/views/pazienti.jsp" />
 	</definition>
+        <definition name="medici" extends="DefaultTemplate">
+	    <put-attribute name="body"	value="/WEB-INF/views/medici.jsp" />
+	</definition>
+        <definition name="tipologie" extends="DefaultTemplate">
+	    <put-attribute name="body"	value="/WEB-INF/views/esami/tipologie.jsp" />
+	</definition>
+        <definition name="exception" extends="BlankTemplate">
+            <put-attribute name="body" value="/WEB-INF/views/exception.jsp"/>
+        </definition>
 </tiles-definitions>

@@ -12,8 +12,8 @@
             &nbsp;<strong>Esami</strong>
         </li>
         <li id="listaesami">  
-            <a href="${pageContext.request.contextPath}/">
-                &nbsp;Consulta esami disponibili
+            <a href="${pageContext.request.contextPath}/esami/tipologie/show">
+                &nbsp;Consulta tipologie esami
             </a>
         </li>
         
@@ -42,7 +42,7 @@
         </li>
         
         <li id="medici">  
-            <a href="${pageContext.request.contextPath}/">
+            <a href="${pageContext.request.contextPath}/medici/show">
                 <i class="fa fa-user-md" aria-hidden="true"></i>
                 &nbsp;<strong>Personale medico</strong>
             </a>

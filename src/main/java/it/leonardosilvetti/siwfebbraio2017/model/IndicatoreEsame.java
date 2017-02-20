@@ -1,11 +1,14 @@
 package it.leonardosilvetti.siwfebbraio2017.model;
 
 import java.io.Serializable;
+import java.util.List;
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -18,7 +21,8 @@ public class IndicatoreEsame implements Serializable {
     
     private String nome;
     
-    private String risultato;
+    @OneToMany(mappedBy = "indicatoreEsame", cascade = CascadeType.PERSIST)
+    private List<Risultato> risultato;
     
     @ManyToOne
     private TipologiaEsame tipologiaEsame;
@@ -39,14 +43,14 @@ public class IndicatoreEsame implements Serializable {
         this.nome = nome;
     }
 
-    public String getRisultato() {
+    public List<Risultato> getRisultato() {
         return risultato;
     }
 
-    public void setRisultato(String risultato) {
+    public void setRisultato(List<Risultato> risultato) {
         this.risultato = risultato;
     }
-
+    
     public TipologiaEsame getTipologiaEsame() {
         return tipologiaEsame;
     }

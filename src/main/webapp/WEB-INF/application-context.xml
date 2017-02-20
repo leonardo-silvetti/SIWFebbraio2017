@@ -47,4 +47,8 @@
     <!--CUSTOM BEANS-->
     <bean id="pazienteDao" class="it.leonardosilvetti.siwfebbraio2017.dao.impl.PazienteDAOImpl"></bean>
     <bean id="pazienteBo" class="it.leonardosilvetti.siwfebbraio2017.service.impl.PazienteBOImpl"></bean>
+    <bean id="medicoDao" class="it.leonardosilvetti.siwfebbraio2017.dao.impl.MedicoDAOImpl"></bean>
+    <bean id="medicoBo" class="it.leonardosilvetti.siwfebbraio2017.service.impl.MedicoBOImpl"></bean>
+    <bean id="tipologiaEsameDao" class="it.leonardosilvetti.siwfebbraio2017.dao.impl.TipologiaEsameDAOImpl"></bean>
+    <bean id="tipologiaEsameBo" class="it.leonardosilvetti.siwfebbraio2017.service.impl.TipologiaEsameBOImpl"></bean>
 </beans>
