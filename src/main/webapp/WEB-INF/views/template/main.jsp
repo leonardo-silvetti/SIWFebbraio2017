@@ -10,8 +10,10 @@
         <script src="${pageContext.request.contextPath}/resources/bootstrap/js/bootstrap.js"></script>
         <link href="${pageContext.request.contextPath}/resources/bootstrap/css/bootstrap.css" rel="stylesheet"></link>
         <link href="${pageContext.request.contextPath}/resources/font-awesome/css/font-awesome.css" rel="stylesheet"></link>
-        <link href="${pageContext.request.contextPath}/resources/data-tables/datatables.css" rel="stylesheet"/>
-        <script src="${pageContext.request.contextPath}/resources/data-tables/datatables.js"></script>
+        <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/resources/data-tables/datatables.min.css"/>
+        <script type="text/javascript" src="${pageContext.request.contextPath}/resources/data-tables/datatables.min.js"></script>
+        <link href="${pageContext.request.contextPath}/resources/select2/dist/css/select2.css" rel="stylesheet"/>
+        <script src="${pageContext.request.contextPath}/resources/select2/dist/js/select2.js"></script>
     </head>
     <body style="padding-top: 70px">
         <tiles:insertAttribute name="navbar"/>

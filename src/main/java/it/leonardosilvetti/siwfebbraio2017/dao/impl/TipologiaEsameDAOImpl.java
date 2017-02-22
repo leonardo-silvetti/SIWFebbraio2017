@@ -1,6 +1,8 @@
 package it.leonardosilvetti.siwfebbraio2017.dao.impl;
 
 import it.leonardosilvetti.siwfebbraio2017.dao.TipologiaEsameDAO;
+import it.leonardosilvetti.siwfebbraio2017.model.IndicatoreEsame;
+import it.leonardosilvetti.siwfebbraio2017.model.PrerequisitoEsame;
 import it.leonardosilvetti.siwfebbraio2017.model.TipologiaEsame;
 import java.util.List;
 import org.hibernate.SessionFactory;
@@ -24,7 +26,15 @@ public class TipologiaEsameDAOImpl implements TipologiaEsameDAO {
     public void saveTipologia(TipologiaEsame tipologia) {
         sessionFactory.getCurrentSession().save(tipologia);
     }
-
+    
+    public void saveIndicatore(IndicatoreEsame indicatore) {
+        sessionFactory.getCurrentSession().save(indicatore);
+    }
+    
+    public void savePrerequisito(PrerequisitoEsame prerequisito) {
+        sessionFactory.getCurrentSession().save(prerequisito);
+    }
+    
     public void deleteById(Long id) {
         TipologiaEsame tipologia = (TipologiaEsame)sessionFactory.getCurrentSession()
                 .get(TipologiaEsame.class, id);

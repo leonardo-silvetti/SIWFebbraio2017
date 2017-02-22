@@ -1,6 +1,8 @@
 package it.leonardosilvetti.siwfebbraio2017.service.impl;
 
 import it.leonardosilvetti.siwfebbraio2017.dao.TipologiaEsameDAO;
+import it.leonardosilvetti.siwfebbraio2017.model.IndicatoreEsame;
+import it.leonardosilvetti.siwfebbraio2017.model.PrerequisitoEsame;
 import it.leonardosilvetti.siwfebbraio2017.model.TipologiaEsame;
 import it.leonardosilvetti.siwfebbraio2017.service.TipologiaEsameBO;
 import java.util.List;
@@ -25,6 +27,14 @@ public class TipologiaEsameBOImpl implements TipologiaEsameBO {
 
     public void saveTipologia(TipologiaEsame tipologia) {
         tipologiaEsameDao.saveTipologia(tipologia);
+    }
+
+    public void saveIndicatore(IndicatoreEsame indicatore) {
+        tipologiaEsameDao.saveIndicatore(indicatore);
+    }
+
+    public void savePrerequisito(PrerequisitoEsame prerequisito) {
+        tipologiaEsameDao.savePrerequisito(prerequisito);
     }
 
     public void deleteById(Long id) {
