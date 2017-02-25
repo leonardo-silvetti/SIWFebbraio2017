@@ -22,7 +22,7 @@ public class IndicatoreEsame implements Serializable {
     private String nome;
     
     @OneToMany(mappedBy = "indicatoreEsame", cascade = CascadeType.PERSIST)
-    private List<Risultato> risultato;
+    private List<Risultato> risultati;
     
     @ManyToOne
     private TipologiaEsame tipologiaEsame;
@@ -44,11 +44,11 @@ public class IndicatoreEsame implements Serializable {
     }
 
     public List<Risultato> getRisultato() {
-        return risultato;
+        return risultati;
     }
 
     public void setRisultato(List<Risultato> risultato) {
-        this.risultato = risultato;
+        this.risultati = risultato;
     }
     
     public TipologiaEsame getTipologiaEsame() {

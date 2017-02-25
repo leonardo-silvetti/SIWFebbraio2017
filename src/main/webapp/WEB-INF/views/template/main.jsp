@@ -14,6 +14,10 @@
         <script type="text/javascript" src="${pageContext.request.contextPath}/resources/data-tables/datatables.min.js"></script>
         <link href="${pageContext.request.contextPath}/resources/select2/dist/css/select2.css" rel="stylesheet"/>
         <script src="${pageContext.request.contextPath}/resources/select2/dist/js/select2.js"></script>
+        <link href="${pageContext.request.contextPath}/resources/datepicker/bootstrap-datetimepicker.css" rel="stylesheet"/>
+        <script src="${pageContext.request.contextPath}/resources/datepicker/moment-with-locales.js"></script>
+        <script src="${pageContext.request.contextPath}/resources/datepicker/bootstrap-datetimepicker.js"></script>
+        <script src="${pageContext.request.contextPath}/resources/js/validator.js"></script>
     </head>
     <body style="padding-top: 70px">
         <tiles:insertAttribute name="navbar"/>

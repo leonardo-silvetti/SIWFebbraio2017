@@ -76,4 +76,8 @@ public class Paziente implements Serializable {
     public void setEsami(List<Esame> esami) {
         this.esami = esami;
     }
+
+    public String getDescrizionePaziente() {
+        return nome +" "+ cognome +" - "+ codiceFiscale;
+    }
 }

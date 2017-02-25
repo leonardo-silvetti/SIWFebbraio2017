@@ -6,38 +6,17 @@
                 &nbsp;<strong>Home</strong>
             </a>
         </li>
-        
-        <li style="color:#006bb3">
-            <i class="fa fa-file-text" aria-hidden="true"></i>
-            &nbsp;<strong>Esami</strong>
-        </li>
         <li id="listaesami">  
             <a href="${pageContext.request.contextPath}/esami/tipologie/show">
-                &nbsp;Consulta tipologie esami
+                <i class="fa fa-file-archive-o" aria-hidden="true"></i>
+                &nbsp;<strong>Consulta tipologie esami</strong>
             </a>
         </li>
         
         <li id="nuovatipologia">  
-            <a href="${pageContext.request.contextPath}/">
-                &nbsp;Aggiungi tipologia esame
-            </a>
-        </li>
-        
-        <li id="nuovoesame">  
-            <a href="${pageContext.request.contextPath}/">
-                &nbsp;Aggiungi nuovo esame
-            </a>
-        </li>
-        
-        <li id="nuovirisultati">  
-            <a href="${pageContext.request.contextPath}/">
-                &nbsp;Inserisci risultati esame
-            </a>
-        </li>
-        
-        <li id="risultati">  
-            <a href="${pageContext.request.contextPath}/">
-                &nbsp;Consulta risultati esame
+            <a href="${pageContext.request.contextPath}/esami/appuntamenti/show">
+                <i class="fa fa-list-alt" aria-hidden="true"></i>
+                &nbsp;<strong>Consulta Prenotazioni</strong>
             </a>
         </li>
         

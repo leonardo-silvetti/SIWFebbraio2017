@@ -66,4 +66,8 @@ public class Medico implements Serializable {
     public void setVisite(List<Esame> visite) {
         this.visite = visite;
     }
+
+    public String getDescrizioneMedico() {
+        return nome +" "+ cognome +" - "+ specializzazione;
+    }
 }

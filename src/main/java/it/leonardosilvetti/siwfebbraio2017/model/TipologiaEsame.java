@@ -99,4 +99,8 @@ public class TipologiaEsame implements Serializable {
     public void setEsami(List<Esame> esami) {
         this.esami = esami;
     }
+
+    public String getDescrizioneTipologia() {
+        return codice +" - "+ nome +" ("+ costo +" €)";
+    }
 }

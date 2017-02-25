@@ -2,11 +2,14 @@ package it.leonardosilvetti.siwfebbraio2017.model;
 
 import java.io.Serializable;
 import java.util.Date;
+import java.util.List;
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -29,6 +32,9 @@ public class Esame implements Serializable {
     
     @ManyToOne
     private Medico medico;
+    
+    @OneToMany(mappedBy = "esame", cascade = CascadeType.PERSIST)
+    private List<Risultato> risultati;
 
     public Long getId() {
         return id;
@@ -76,5 +82,13 @@ public class Esame implements Serializable {
 
     public void setMedico(Medico medico) {
         this.medico = medico;
+    }
+
+    public List<Risultato> getRisultati() {
+        return risultati;
+    }
+
+    public void setRisultati(List<Risultato> risultati) {
+        this.risultati = risultati;
     }
 }

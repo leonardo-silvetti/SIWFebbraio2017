@@ -15,6 +15,15 @@
         <definition name="tipologie" extends="DefaultTemplate">
 	    <put-attribute name="body"	value="/WEB-INF/views/esami/tipologie.jsp" />
 	</definition>
+        <definition name="appuntamenti" extends="DefaultTemplate">
+	    <put-attribute name="body"	value="/WEB-INF/views/esami/appuntamenti.jsp" />
+	</definition>
+        <definition name="nuovoesame" extends="DefaultTemplate">
+	    <put-attribute name="body"	value="/WEB-INF/views/esami/nuovoesame.jsp" />
+	</definition>
+        <definition name="inseriscirisultati" extends="DefaultTemplate">
+	    <put-attribute name="body"	value="/WEB-INF/views/esami/inseriscirisultati.jsp" />
+	</definition>
         <definition name="exception" extends="BlankTemplate">
             <put-attribute name="body" value="/WEB-INF/views/exception.jsp"/>
         </definition>

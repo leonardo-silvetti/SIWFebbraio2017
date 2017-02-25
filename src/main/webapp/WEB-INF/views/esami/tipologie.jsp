@@ -49,7 +49,6 @@
                     <th>Indicatori:</th>
                     <th>Prerequisiti:</th>
                     <th class="all"></th>
-                    <th class="all"></th>
                 </tr>
             </thead>
             <tbody>
@@ -74,11 +73,6 @@
                         <td>
                             <a href="${pageContext.request.contextPath}/esami/tipologie/delete?id=${tipologia.id}">
                                 <span class="glyphicon glyphicon-remove"></span>
-                            </a>
-                        </td>
-                        <td>
-                            <a href="${pageContext.request.contextPath}/esami/tipologie/update?id=${tipologia.id}">
-                                <span class="glyphicon glyphicon-pencil"></span>
                             </a>
                         </td>
                     </tr> 
@@ -136,18 +130,19 @@
                 <h4 class="modal-title">Nuovo indicatore per i risultati</h4>
             </div>
             <div class="modal-body">
-                <form:form method="POST" action="${pageContext.request.contextPath}/esami/indicatori/save" commandName="indicatoreBean">
-                    <div class="form-group">      
+                <form:form data-toggle="validator" method="POST" action="${pageContext.request.contextPath}/esami/indicatori/save" commandName="indicatoreBean">
+                    <div class="form-group has-feedback">      
                         <label for="nome">Inserisci il nome del nuovo indicatore:</label>
-                        <form:input path="nome" class="form-control" id="nome"/>
-                        <br> 
+                        <form:input path="nome" class="form-control" id="nome" required="true"/>
+                        <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+                        <div class="help-block with-errors"></div>
+                    </div>
+                    <div class="form-group">
                         <label for="selectTipologia">Scegli a quale tipologia associare questo indicatore:</label>
-                        <br>
                         <form:select id="selectTipologia" path="tipologiaEsame.id" class="form-control" style="width: 75%" required="true">
                             <form:options items="${listaTipologie}" itemLabel="nome" itemValue="id"></form:options>
                         </form:select>
                     </div>
-                    <br>
                     <button type="submit" class="btn btn-success">Salva</button>
                 </form:form>
             </div>
@@ -164,20 +159,24 @@
                 <h4 class="modal-title">Nuovo prerequisito per l'esame</h4>
             </div>
             <div class="modal-body">
-                <form:form method="POST" action="${pageContext.request.contextPath}/esami/prerequisiti/save" commandName="prerequisitoBean">
-                    <div class="form-group">      
+                <form:form data-toggle="validator" method="POST" action="${pageContext.request.contextPath}/esami/prerequisiti/save" commandName="prerequisitoBean">
+                    <div class="form-group has-feedback">      
                         <label>Inserisci nome e valore del nuovo prerequisito:</label>
-                        <form:input path="nome" class="form-control" id="nome" placeholder="Nome"/>
-                        <br>
-                        <form:input path="valore" class="form-control" id="valore" placeholder="Valore"/>
-                        <br><br>
+                        <form:input path="nome" class="form-control" id="nome" placeholder="Nome" required="true"/>
+                        <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+                        <div class="help-block with-errors"></div>
+                    </div>
+                    <div class="form-group has-feedback">
+                        <form:input path="valore" class="form-control" id="valore" placeholder="Valore" required="true"/>
+                        <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+                        <div class="help-block with-errors"></div>
+                    </div>
+                    <div class="form-group">
                         <label for="selectTipologia">Scegli a quale tipologia associare questo prerequisito:</label>
-                        <br>
                         <form:select id="selectTipologia" path="tipologiaEsame.id" class="form-control" style="width: 75%" required="true">
                             <form:options items="${listaTipologie}" itemLabel="nome" itemValue="id"></form:options>
                         </form:select>
                     </div>
-                    <br>
                     <button type="submit" class="btn btn-success">Salva</button>
                 </form:form>
             </div>
@@ -193,7 +192,7 @@
             "scrollX": true,
             "columnDefs": [
                 {"className": 'none', "targets": [3, 5, 6]},
-                {"orderable": false, "targets": [0, 2, 3, 4, 5, 6, 7, 8]}
+                {"orderable": false, "targets": [0, 2, 3, 4, 5, 6, 7]}
             ]
         });
         $('select').select2();

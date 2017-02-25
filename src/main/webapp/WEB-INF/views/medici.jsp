@@ -1,5 +1,5 @@
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <div class="panel panel-default">
     <div class="panel-heading">
@@ -20,7 +20,6 @@
                     <th>Cognome</th>
                     <th>Specializzazione</th>
                     <th class="all"></th>
-                    <th class="all"></th>
                 </tr>
             </thead>
             <tbody>
@@ -32,11 +31,6 @@
                         <td>
                             <a href="${pageContext.request.contextPath}/medici/delete?id=${medico.id}">
                                 <span class="glyphicon glyphicon-remove"></span>
-                            </a>
-                        </td>
-                        <td>
-                            <a href="${pageContext.request.contextPath}/medici/update?id=${medico.id}">
-                                <span class="glyphicon glyphicon-pencil"></span>
                             </a>
                         </td>
                     </tr> 
@@ -55,24 +49,31 @@
                 <h4 class="modal-title">Inserisci dati personale medico</h4>
             </div>
             <div class="modal-body">
-                <form:form method="POST" action="${pageContext.request.contextPath}/medici/save" commandName="medicoBean">
-                    <div class="form-group-lg">
+                <form:form data-toggle="validator" method="POST" action="${pageContext.request.contextPath}/medici/save" commandName="medicoBean">
+                    <div class="form-group has-feedback">
                         <div class="input-group">
                             <div class="input-group-addon"><i class="fa fa-user fa-lg"></i></div>
-                                <form:input path="nome" id="nome" type="text" class="form-control" placeholder="Nome"/>
+                            <form:input path="nome" id="nome" type="text" class="form-control" placeholder="Nome" required="true"/>
                         </div>
-                        <br>
+                        <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+                        <div class="help-block with-errors"></div>
+                    </div>
+                    <div class="form-group has-feedback">
                         <div class="input-group">
                             <div class="input-group-addon"><i class="fa fa-user-o fa-lg"></i></div>
-                                <form:input path="cognome" id="cognome" type="text" class="form-control" placeholder="Cognome"/>
+                            <form:input path="cognome" id="cognome" type="text" class="form-control" placeholder="Cognome" required="true"/>
                         </div>
-                        <br>
+                        <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+                        <div class="help-block with-errors"></div>
+                    </div>
+                    <div class="form-group has-feedback">
                         <div class="input-group">
                             <div class="input-group-addon"><i class="fa fa-stethoscope fa-lg"></i></div>
-                                <form:input path="specializzazione" id="specializzazione" type="text" class="form-control" placeholder="Specializzazione"/>
+                            <form:input path="specializzazione" id="specializzazione" type="text" class="form-control" placeholder="Specializzazione" required="true"/>
                         </div>
+                        <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+                        <div class="help-block with-errors"></div>
                     </div>
-                    <br>
                     <button type="submit" class="btn btn-success">Salva</button>
                 </form:form>
             </div>
@@ -81,14 +82,12 @@
 </div>
 <script>
     $(document).ready(function () {
-
         $('#mediciTable').dataTable({
             "order": [],
             "responsive": true,
             "scrollX": true,
             "columnDefs": [
-                //{"className": 'none', "targets": [1, 5, 6, 7]},
-                {"orderable": false, "targets": [0, 3, 4]}
+                {"orderable": false, "targets": [0, 3]}
             ]
         });
     });

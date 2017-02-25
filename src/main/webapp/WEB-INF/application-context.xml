@@ -51,4 +51,6 @@
     <bean id="medicoBo" class="it.leonardosilvetti.siwfebbraio2017.service.impl.MedicoBOImpl"></bean>
     <bean id="tipologiaEsameDao" class="it.leonardosilvetti.siwfebbraio2017.dao.impl.TipologiaEsameDAOImpl"></bean>
     <bean id="tipologiaEsameBo" class="it.leonardosilvetti.siwfebbraio2017.service.impl.TipologiaEsameBOImpl"></bean>
+    <bean id="esameDao" class="it.leonardosilvetti.siwfebbraio2017.dao.impl.EsameDAOImpl"></bean>
+    <bean id="esameBo" class="it.leonardosilvetti.siwfebbraio2017.service.impl.EsameBOImpl"></bean>
 </beans>
