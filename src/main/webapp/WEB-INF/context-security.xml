@@ -10,7 +10,12 @@
            http://www.springframework.org/schema/security/spring-security.xsd">
         
     <http auto-config="true" use-expressions="true">
+        <intercept-url pattern="/esami/tipologie/save" access="hasRole('ROLE_ADMIN')"/>
+        <intercept-url pattern="/esami/tipologie/delete" access="hasRole('ROLE_ADMIN')"/>
         <intercept-url pattern="/esami/appuntamenti/**" access="hasRole('ROLE_ADMIN')"/>
+        <intercept-url pattern="/esami/risultati/**" access="hasRole('ROLE_ADMIN')"/>
+        <intercept-url pattern="/esami/prerequisiti/**" access="hasRole('ROLE_ADMIN')"/>
+        <intercept-url pattern="/esami/indicatori/**" access="hasRole('ROLE_ADMIN')"/>
         <intercept-url pattern="/esami/imieiesami/**" access="hasRole('ROLE_PAZ')"/>
         <intercept-url pattern="/pazienti/**" access="hasRole('ROLE_ADMIN')"/>
         <intercept-url pattern="/medici/**" access="hasRole('ROLE_ADMIN')"/>
@@ -32,6 +37,7 @@
                 <user name="admin@domain.com" password="password" authorities="ROLE_ADMIN" />
                 <user name="paziente1@domain.com" password="password" authorities="ROLE_PAZ" />
                 <user name="paziente2@domain.com" password="password" authorities="ROLE_PAZ" />
+                <user name="paziente4@domain.com" password="password" authorities="ROLE_PAZ" />
             </user-service>
         </authentication-provider>
     </authentication-manager>
