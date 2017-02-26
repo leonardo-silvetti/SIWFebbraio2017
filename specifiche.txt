@@ -1,0 +1,56 @@
+--PRINCIPALI CASI DI UTILIZZO--
+
+UTENTE NON REGISTRATO/AMMINISTRATORE/PAZIENTE:
+-l'utente consulta l'elenco delle tipologie di esame
+-l'utente sceglie una tipologia di esame e ne richiede i dettagli 
+-il sistema mostra i dettagli della tipologia di esame scelta dall'utente
+-attraverso il box di ricerca l'utente può filtrare le diverse tipologie di esame
+-attraverso l'apposito pulsante l'utente può ordinare per nome le varie tipologie
+-l'utente ripete i passi precedenti un numero indefinito di volte
+
+UTENTE NON REGISTRATO:
+-l'utente attraverso l'apposito tasto sceglie di effettuare il login nell'applicazione
+-il sistema prospetta la schermata di login che viene compilata dall'utente 
+-a seconda della tipologia di utente con cui si accede il sistema crea 
+ il menu con le funzioni adatte all'utente loggato
+-l'utente può in ogni momento effettuare il logout e tornare alla pagina iniziale
+ come utente non registrato
+
+UTENTE AMMINISTRATORE:
+-l'utente amministratore consulta gli esami gia prenotati
+-attraverso i pulstanti appositi e il box di ricerca le prenotazioni possono
+ essere filtrate e ordinate secondo vari criteri
+-per gli esami che hanno già dei risultati questi possono essere consultati premendo il tasto corrispondente (+)
+-l'amministratore sceglie una prenotazione per la quale vuole inserire dei risultati
+-in un form apposito vengono presentati gli indicatori dei risultati da compilare e salvare nel database
+-l'amministratore può ripetere l'operazione per tutti gli esami per i quali ancora non sono presenti risultati
+
+UTENTE AMMINISTRATORE
+-l'utente amministratore crea un nuovo esame
+-il sistema richiede di associare all'esame un paziente, un medico, una tipologia e data e ora dell'appuntamento
+-il sistema salva in automatico la data di prenotazione
+-il nuovo esame viene salvato nel database
+-dalla schermata di consultazione l'utente può decidere anche di rimuovere un esame salvato in precedenza
+-le operazioni precedenti possono essere eseguite un numero indefinito di volte
+
+UTENTE AMMNISTRATORE:
+-l'utente amministratore consulta la lista dei medici/pazienti
+-attraverso i pulstanti appositi e il box di ricerca i medici/pazienti possono
+ essere filtrati e ordinati secondo vari criteri
+-l'amministratore può inserire nuovi medici/pazienti
+-l'amministratore può eliminare medici/pazienti già presenti nel database
+-le operazioni precedenti possono essere eseguite un numero indefinito di volte
+
+UTENTE AMMINISTRATORE:
+-l'amministratore crea una nuova tipologia di esame
+-il sistema salva la nuova tipologia
+-alle varie tipologie possono essere associati a piacimento nuovi prerequisiti e nuovi indicatori
+ attraverso dei form appositi
+-le operazioni precedenti possono essere eseguite un numero indefinito di volte
+
+UTENTE PAZIENTE REGISTRATO:
+-il paziente può consultare la lista delle sue prenotazioni
+-attraverso i pulstanti appositi e il box di ricerca le prenotazioni possono
+ essere filtrate e ordinate secondo vari criteri
+-il paziente può richiedere al sistema di mostrare i risultati relativi ad un certo esame (se disponibili)
+-le operazioni precedenti possono essere eseguite un numero indefinito di volte
