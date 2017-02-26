@@ -18,12 +18,8 @@
 
 <div class="panel panel-default">
     <div class="panel-heading">
-        <div class="panel-title pull-left">Appuntamenti</div>
-        <div class="panel-title pull-right">
-            <i class="fa fa-plus" aria-hidden="true"></i>
-            <a align="right" href="${pageContext.request.contextPath}/esami/appuntamenti/new" >
-                Inserisci nuovo esame
-            </a>
+        <div class="panel-title pull-left">I miei esami - 
+            <strong>${userPrincipal.nome}&ensp;${userPrincipal.cognome}</strong>
         </div>
         <div class="clearfix"></div>
     </div>
@@ -32,35 +28,21 @@
             <thead>
                 <tr>
                     <th>Risultati</th>
-                    <th>Paziente</th>
                     <th>Medico</th>
                     <th>Tipologia Esame</th>
                     <th>Data e Orario</th>
                     <th>Prenotato il</th>
-                    <th class="all"></th>
-                    <th class="all"></th>
                     <th></th>
                 </tr>
             </thead>
             <tbody>
-                <c:forEach var="esame" items="${listaEsami}">
-                    <tr> 
+                <c:forEach var="esame" items="${listaEsamiPaziente}">
+                    <tr>
                         <td></td>
-                        <td>${esame.paziente.nome}&ensp;${esame.paziente.cognome}</td>
                         <td>${esame.medico.nome}&ensp;${esame.medico.cognome}</td>
                         <td>${esame.tipologiaEsame.nome}</td>
                         <td><fmt:formatDate type="both" value="${esame.dataSvolgimento}"/></td>
                         <td><fmt:formatDate type="date" value="${esame.dataPrenotazione}"/></td>
-                        <td>
-                            <a class="confirmation" href="${pageContext.request.contextPath}/esami/appuntamenti/delete?id=${esame.id}">
-                                <span class="glyphicon glyphicon-remove"></span>
-                            </a>
-                        </td>
-                        <td>
-                            <a href="${pageContext.request.contextPath}/esami/risultati/new?id=${esame.id}">
-                                <span class="glyphicon glyphicon-open-file"></span>
-                            </a>
-                        </td>
                         <td>
                             <c:forEach var="risultato" items="${esame.risultati}">
                                 <br><div class="chip">${risultato.indicatoreEsame.nome}</div>
@@ -73,22 +55,17 @@
         </table>
     </div>
 </div>
-
+                
 <script>
    $(document).ready(function () {
-       $('.confirmation').on('click', function () {
-            return confirm('ATTENZIONE!\n'+
-                'Vuoi davvero eliminare questo esame e i risultati corrispondenti?');
-        });
         $('#esamiTable').dataTable({
             "order": [],
             "responsive": true,
             "scrollX": true,
             "columnDefs": [
-                {"className": 'none', "targets": [8]},
-                {"orderable": false, "targets": [0, 4, 6, 7, 8]}
+                {"className": 'none', "targets": [5]},
+                {"orderable": false, "targets": [0, 3, 5]}
             ]
         });
     }); 
 </script>
-

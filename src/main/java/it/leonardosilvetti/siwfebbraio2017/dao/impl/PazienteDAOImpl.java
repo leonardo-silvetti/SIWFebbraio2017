@@ -20,6 +20,12 @@ public class PazienteDAOImpl implements PazienteDAO {
     public Paziente findById(Long id) {
         return (Paziente)sessionFactory.getCurrentSession().get(Paziente.class, id);
     }
+    
+    public List<Paziente> findByMail(String email) {
+        return sessionFactory.getCurrentSession()
+                .createQuery("FROM Paziente p WHERE p.email = :param")
+                .setString("param", email).list();
+    }
 
     public void savePaziente(Paziente paziente) {
         sessionFactory.getCurrentSession().save(paziente);

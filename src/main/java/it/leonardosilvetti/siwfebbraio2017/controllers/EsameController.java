@@ -45,9 +45,15 @@ public class EsameController {
     }
     
     @RequestMapping(value = {"appuntamenti/show", "risultati/show"})
-    public String showAppuntamenti(Model model)  {
+    public String showAppuntamenti(Model model) {
         model.addAttribute("listaEsami", esameBo.findAllEsami());
         return "appuntamenti";
+    }
+    
+    @RequestMapping("/imieiesami/show")
+    public String showEsami(@RequestParam("id") Long id, Model model) {
+        model.addAttribute("listaEsamiPaziente", esameBo.findByIdPaziente(id));
+        return "imieiesami";
     }
     
     @RequestMapping("/tipologie/save")
@@ -95,9 +101,28 @@ public class EsameController {
     @RequestMapping("/risultati/new")
     public String newRisultati(@RequestParam("id") Long id, Model model) {
         Esame esame = esameBo.findById(id);
-        model.addAttribute("esame", esame);
-        model.addAttribute("risultatiBean", initializeForm(esame));
-        return "inseriscirisultati";
+        if(esame.getRisultati()==null || esame.getRisultati().isEmpty()) {
+            model.addAttribute("esame", esame);
+            model.addAttribute("risultatiBean", initializeForm(esame));
+            return "inseriscirisultati";
+        } else {
+            model.addAttribute("name", "Impossibile procedere");
+            model.addAttribute("message",
+                    "Per l'esame selezionato sono già stati inseriti i risultati!");
+            return "exception";
+        }
+    }
+    
+    @RequestMapping("/tipologie/delete")
+    public String deleteTipologia(@RequestParam("id") Long id) {
+        tipologiaEsameBo.deleteById(id);
+        return "redirect:"+"show";
+    }
+    
+    @RequestMapping("/appuntamenti/delete")
+    public String deleteAppuntamento(@RequestParam("id") Long id) {
+        esameBo.deletById(id);
+        return "redirect:"+"show";
     }
     
     private FormRisultati initializeForm(Esame esame) {

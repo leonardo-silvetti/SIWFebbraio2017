@@ -20,6 +20,7 @@
                     <th>Cognome</th>
                     <th>Indirizzo</th>
                     <th>Codice Fiscale</th>
+                    <th>Email</th>
                     <th class="all"></th>
                 </tr>
             </thead>
@@ -30,8 +31,9 @@
                         <td>${paziente.cognome}</td>
                         <td>${paziente.indirizzo}</td>
                         <td>${paziente.codiceFiscale}</td>
+                        <td>${paziente.email}</td>
                         <td>
-                            <a href="${pageContext.request.contextPath}/pazienti/delete?id=${paziente.id}">
+                            <a href="${pageContext.request.contextPath}/pazienti/delete?id=${paziente.id}" class="confirmation">
                                 <span class="glyphicon glyphicon-remove"></span>
                             </a>
                         </td>
@@ -42,7 +44,7 @@
     </div>
 </div>
 
-<!-- Modal -->
+<!-- Modal inserimento-->
 <div id="pazienteModal" class="modal fade" role="dialog">
     <div class="modal-dialog">
         <div class="modal-content">
@@ -55,7 +57,7 @@
                     <div class="form-group has-feedback">
                         <div class="input-group">
                             <div class="input-group-addon"><i class="fa fa-user fa-lg"></i></div>
-                            <form:input path="nome" id="nome" type="text" class="form-control" placeholder="Nome" required="true"/>
+                                <form:input path="nome" id="nome" type="text" class="form-control" placeholder="Nome" required="true"/>
                         </div>
                         <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
                         <div class="help-block with-errors"></div>
@@ -63,7 +65,7 @@
                     <div class="form-group has-feedback">
                         <div class="input-group">
                             <div class="input-group-addon"><i class="fa fa-user-o fa-lg"></i></div>
-                            <form:input path="cognome" id="cognome" type="text" class="form-control" placeholder="Cognome" required="true"/>
+                                <form:input path="cognome" id="cognome" type="text" class="form-control" placeholder="Cognome" required="true"/>
                         </div>
                         <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
                         <div class="help-block with-errors"></div>
@@ -71,7 +73,7 @@
                     <div class="form-group has-feedback">
                         <div class="input-group">
                             <div class="input-group-addon"><i class="fa fa-map-marker fa-lg"></i></div>
-                            <form:input path="indirizzo" id="indirizzo" type="text" class="form-control" placeholder="Indirizzo" required="true"/>
+                                <form:input path="indirizzo" id="indirizzo" type="text" class="form-control" placeholder="Indirizzo" required="true"/>
                         </div>
                         <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
                         <div class="help-block with-errors"></div>
@@ -79,7 +81,16 @@
                     <div class="form-group has-feedback">
                         <div class="input-group">
                             <div class="input-group-addon"><i class="fa fa-address-card fa-lg"></i></div>
-                            <form:input path="codiceFiscale" id="codiceFiscale" type="text" class="form-control" placeholder="Codice Fiscale" required="true"/>
+                                <form:input path="codiceFiscale" id="codiceFiscale" type="text" class="form-control" placeholder="Codice Fiscale" required="true"/>
+                        </div>
+                        <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+                        <div class="help-block with-errors"></div>
+                    </div>
+                    <div class="form-group has-feedback">
+                        <div class="input-group">
+                            <div class="input-group-addon"><i class="fa fa-envelope fa-lg"></i></div>
+                                <form:input type ="email" path="email" class="form-control" id="email" placeholder="your@email.com"
+                                            data-error="Email non valida, controlla la @ e il dominio!" pattern="[^@\s]+@[^@\s]+\.[^@\s]+"/>
                         </div>
                         <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
                         <div class="help-block with-errors"></div>
@@ -90,14 +101,21 @@
         </div>
     </div>
 </div>
+
 <script>
     $(document).ready(function () {
+        
+        $('.confirmation').on('click', function () {
+            return confirm('ATTENZIONE!\n'+
+                'Eliminando il paziente verranno eliminati anche tutti gli esami a lui associati.\n'+
+                'Sei sicuro?');
+        });
         $('#pazientiTable').dataTable({
             "order": [],
             "responsive": true,
             "scrollX": true,
             "columnDefs": [
-                {"orderable": false, "targets": [0, 2, 3, 4]}
+                {"orderable": false, "targets": [2, 3, 4, 5]}
             ]
         });
     });

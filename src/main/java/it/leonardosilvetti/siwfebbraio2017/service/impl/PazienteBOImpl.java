@@ -23,6 +23,14 @@ public class PazienteBOImpl implements PazienteBO {
         return pazienteDao.findById(id);
     }
 
+    public Paziente findByMail(String email) {
+        List<Paziente> listaPazienti = pazienteDao.findByMail(email);
+        if(listaPazienti.size()>0) {
+            return listaPazienti.get(0);
+        } else
+            return null;
+    }
+    
     public void savePaziente(Paziente paziente) {
         pazienteDao.savePaziente(paziente);
     }

@@ -2,6 +2,7 @@ package it.leonardosilvetti.siwfebbraio2017.dao.impl;
 
 import it.leonardosilvetti.siwfebbraio2017.dao.EsameDAO;
 import it.leonardosilvetti.siwfebbraio2017.model.Esame;
+import it.leonardosilvetti.siwfebbraio2017.model.Paziente;
 import it.leonardosilvetti.siwfebbraio2017.model.Risultato;
 import java.util.List;
 import org.hibernate.SessionFactory;
@@ -22,6 +23,12 @@ public class EsameDAOImpl implements EsameDAO {
         return (Esame)sessionFactory.getCurrentSession().get(Esame.class, id);
     }
 
+    public List<Esame> findByIdPaziente(Long id) {
+        return sessionFactory.getCurrentSession()
+                .createQuery("FROM Esame e WHERE e.paziente.id =:param")
+                .setLong("param", id).list();
+    }
+    
     public void saveEsame(Esame esame) {
         sessionFactory.getCurrentSession().save(esame);
     }

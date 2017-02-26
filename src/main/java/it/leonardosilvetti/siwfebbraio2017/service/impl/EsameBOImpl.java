@@ -2,6 +2,7 @@ package it.leonardosilvetti.siwfebbraio2017.service.impl;
 
 import it.leonardosilvetti.siwfebbraio2017.dao.EsameDAO;
 import it.leonardosilvetti.siwfebbraio2017.model.Esame;
+import it.leonardosilvetti.siwfebbraio2017.model.Paziente;
 import it.leonardosilvetti.siwfebbraio2017.model.Risultato;
 import it.leonardosilvetti.siwfebbraio2017.service.EsameBO;
 import java.util.List;
@@ -24,6 +25,10 @@ public class EsameBOImpl implements EsameBO {
         return esameDao.findById(id);
     }
 
+    public List<Esame> findByIdPaziente(Long id) {
+        return esameDao.findByIdPaziente(id);
+    }
+    
     public void saveEsame(Esame esame) {
         esameDao.saveEsame(esame);
     }

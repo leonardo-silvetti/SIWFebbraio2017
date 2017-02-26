@@ -9,6 +9,8 @@ public interface PazienteDAO {
     
     public Paziente findById(Long id);
     
+    public List<Paziente> findByMail(String email);
+    
     public void savePaziente(Paziente paziente);
     
     public void deleteById(Long id);

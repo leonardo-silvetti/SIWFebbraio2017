@@ -16,7 +16,7 @@ import javax.persistence.Table;
 public class TipologiaEsame implements Serializable {
     
     @Id
-    @GeneratedValue (strategy = GenerationType.IDENTITY)
+    @GeneratedValue (strategy = GenerationType.AUTO)
     private Long id;
     
     private String nome;
@@ -27,13 +27,13 @@ public class TipologiaEsame implements Serializable {
     
     private String costo;
     
-    @OneToMany(mappedBy="tipologiaEsame", cascade = CascadeType.PERSIST)
+    @OneToMany(mappedBy="tipologiaEsame", cascade = CascadeType.ALL)
     private List<PrerequisitoEsame> prerequisiti;
     
-    @OneToMany(mappedBy="tipologiaEsame", cascade = CascadeType.PERSIST)
+    @OneToMany(mappedBy="tipologiaEsame", cascade = CascadeType.ALL)
     private List<IndicatoreEsame> indicatori;
     
-    @OneToMany(mappedBy="tipologiaEsame", cascade = CascadeType.PERSIST)
+    @OneToMany(mappedBy="tipologiaEsame", cascade = CascadeType.ALL)
     private List<Esame> esami;
 
     public Long getId() {

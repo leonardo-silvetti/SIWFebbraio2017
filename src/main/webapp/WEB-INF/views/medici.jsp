@@ -29,7 +29,7 @@
                         <td>${medico.cognome}</td>
                         <td>${medico.specializzazione}</td>
                         <td>
-                            <a href="${pageContext.request.contextPath}/medici/delete?id=${medico.id}">
+                            <a class="confirmation" href="${pageContext.request.contextPath}/medici/delete?id=${medico.id}">
                                 <span class="glyphicon glyphicon-remove"></span>
                             </a>
                         </td>
@@ -82,6 +82,11 @@
 </div>
 <script>
     $(document).ready(function () {
+        $('.confirmation').on('click', function () {
+            return confirm('ATTENZIONE!\n'+
+                'Eliminando il medico verranno eliminati anche tutti gli esami a lui associati.\n'+
+                'Sei sicuro?');
+        });
         $('#mediciTable').dataTable({
             "order": [],
             "responsive": true,

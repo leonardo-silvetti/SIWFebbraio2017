@@ -15,7 +15,7 @@ import javax.persistence.Table;
 public class Medico implements Serializable {
     
     @Id
-    @GeneratedValue (strategy = GenerationType.IDENTITY)
+    @GeneratedValue (strategy = GenerationType.AUTO)
     private Long id;
     
     private String nome;
@@ -24,8 +24,8 @@ public class Medico implements Serializable {
     
     private String specializzazione;
     
-    @OneToMany (mappedBy = "medico", cascade = CascadeType.PERSIST)
-    private List<Esame> visite;
+    @OneToMany (mappedBy = "medico", cascade = CascadeType.ALL)
+    private List<Esame> esami;
 
     public Long getId() {
         return id;
@@ -59,14 +59,14 @@ public class Medico implements Serializable {
         this.specializzazione = specializzazione;
     }
 
-    public List<Esame> getVisite() {
-        return visite;
+    public List<Esame> getEsami() {
+        return esami;
     }
 
-    public void setVisite(List<Esame> visite) {
-        this.visite = visite;
+    public void setEsami(List<Esame> esami) {
+        this.esami = esami;
     }
-
+    
     public String getDescrizioneMedico() {
         return nome +" "+ cognome +" - "+ specializzazione;
     }

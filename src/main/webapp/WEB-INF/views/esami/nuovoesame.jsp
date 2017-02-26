@@ -5,27 +5,30 @@
     <h1 style="margin-top: 0px">Inserisci dati esame</h1>
 </div>
 <form:form data-toggle="validator" method="POST" action="${pageContext.request.contextPath}/esami/appuntamenti/save" commandName="esameBean">          
-    <div class="form-group">   
+    <div class="form-group has-feedback">   
         <label for="paziente">Scegli il paziente:</label>
         <form:select id="selectPaziente" path="paziente.id" class="form-control" required="true">
             <form:options items="${listaPazienti}" itemLabel="descrizionePaziente" itemValue="id"></form:options>
         </form:select>
+        <div class="help-block with-errors"></div>
     </div>
-    <div class="form-group">
+    <div class="form-group has-feedback">
         <label for="medico">Scegli il medico:</label>
         <form:select id="selectMedico" path="medico.id" class="form-control" required="true">
             <form:options items="${listaMedici}" itemLabel="descrizioneMedico" itemValue="id"></form:options>
         </form:select>
+        <div class="help-block with-errors"></div>
     </div>
-    <div class="form-group">
+    <div class="form-group has-feedback">
         <label for="tipologia">Scegli la tipologia di esame:</label>
         <form:select id="selectTipologia" path="tipologiaEsame.id" class="form-control" required="true">
             <form:options items="${listaTipologie}" itemLabel="descrizioneTipologia" itemValue="id"></form:options>
         </form:select>
+        <div class="help-block with-errors"></div>
     </div>
     <div class="form-group has-feedback">
         <label for="date">Data esame:</label>
-        <div id="datetimepicker" class="input-group date">
+        <div id="datetimepicker" class="input-group date" style="width: 30%">
             <form:input path="dataSvolgimento" class="form-control" placeholder="Inserisci data" required="true"/>
             <div class="input-group-addon">
                 <span class="glyphicon glyphicon-th"></span>
