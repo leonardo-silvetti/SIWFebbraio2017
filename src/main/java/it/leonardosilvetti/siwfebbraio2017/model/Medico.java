@@ -27,6 +27,9 @@ public class Medico implements Serializable {
     @OneToMany (mappedBy = "medico", cascade = CascadeType.ALL)
     private List<Esame> esami;
 
+    public Medico() {
+    }
+
     public Long getId() {
         return id;
     }

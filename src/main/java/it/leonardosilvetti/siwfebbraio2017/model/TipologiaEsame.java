@@ -36,6 +36,9 @@ public class TipologiaEsame implements Serializable {
     @OneToMany(mappedBy="tipologiaEsame", cascade = CascadeType.ALL)
     private List<Esame> esami;
 
+    public TipologiaEsame() {
+    }
+
     public Long getId() {
         return id;
     }

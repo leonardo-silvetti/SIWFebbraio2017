@@ -27,6 +27,9 @@ public class IndicatoreEsame implements Serializable {
     @ManyToOne
     private TipologiaEsame tipologiaEsame;
 
+    public IndicatoreEsame() {
+    }
+    
     public Long getId() {
         return id;
     }

@@ -11,7 +11,7 @@
                 <form action="${loginUrl}" method="post" data-toggle="validator">
                     <c:if test="${param.error != null}">        
                         <div class="alert alert-danger">
-                            <strong>Error:</strong> Invalid username and password.
+                            <strong>Errore:</strong> Username o password non validi!
                         </div>
                     </c:if>
 
@@ -25,7 +25,7 @@
                             <div class="input-group-addon">
                                 <span class="glyphicon glyphicon-user"></span>
                             </div>
-                            <input type="text" class="form-control" id="username" name="username" required>
+                            <input type="email" class="form-control" id="username" name="username" placeholder="your@email.com" required>
                         </div>
                         <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
                         <div class="help-block with-errors"></div>
@@ -35,7 +35,7 @@
                             <div class="input-group-addon">
                                 <span class="glyphicon glyphicon-lock"></span>
                             </div>
-                            <input type="password" class="form-control" id="password" name="password" required>
+                            <input type="password" class="form-control" id="password" name="password" placeholder="password" required>
                         </div>
                         <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
                         <div class="help-block with-errors"></div>

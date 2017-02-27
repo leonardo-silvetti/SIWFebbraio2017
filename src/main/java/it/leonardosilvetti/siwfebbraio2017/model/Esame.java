@@ -36,6 +36,9 @@ public class Esame implements Serializable {
     @OneToMany(mappedBy = "esame", cascade = CascadeType.ALL)
     private List<Risultato> risultati;
 
+    public Esame() {
+    }
+    
     public Long getId() {
         return id;
     }

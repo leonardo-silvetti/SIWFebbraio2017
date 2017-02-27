@@ -23,6 +23,9 @@ public class PrerequisitoEsame implements Serializable{
     @ManyToOne
     private TipologiaEsame tipologiaEsame;
 
+    public PrerequisitoEsame() {
+    }
+
     public Long getId() {
         return id;
     }
