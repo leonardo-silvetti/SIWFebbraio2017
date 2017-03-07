@@ -17,7 +17,7 @@ public class ExceptionControllerAdvice {
         return mav;
     }
     
-    @ExceptionHandler(DataAccessException.class)
+    /*@ExceptionHandler(DataAccessException.class)
     public ModelAndView exception(DataAccessException e) {
         ModelAndView mav = new ModelAndView("exception");
         mav.addObject("name", e.getClass().getSimpleName());
