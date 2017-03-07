@@ -8,7 +8,7 @@ import org.springframework.web.servlet.ModelAndView;
 @ControllerAdvice
 public class ExceptionControllerAdvice {
 
-    @ExceptionHandler(Exception.class)
+    /*@ExceptionHandler(Exception.class)
     public ModelAndView exception(Exception e) {
         ModelAndView mav = new ModelAndView("exception");
         mav.addObject("name", e.getClass().getSimpleName());
@@ -24,5 +24,5 @@ public class ExceptionControllerAdvice {
         mav.addObject("message", e.getMessage());
 
         return mav;
-    }
+    }*/
 }
